@@ -1,0 +1,3 @@
+[submodule "src/utils/newfolder"]
+	path = src/utils/newfolder
+	url = https://github.com/waqas837/my-test-submodule.git
