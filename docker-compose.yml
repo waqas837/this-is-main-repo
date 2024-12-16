@@ -1,0 +1,28 @@
+version: '3.8'  
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env
+    restart: unless-stopped  
+
+  mongo:
+    image: mongo:4.4
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped  
+
+volumes:
+  mongo-data:
+    driver: local  
+
+networks:
+  default:
+    name: app-network  
